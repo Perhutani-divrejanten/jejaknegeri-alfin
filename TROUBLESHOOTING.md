@@ -1,4 +1,4 @@
-# 🔧 Troubleshooting - Masalah & Solusi
+﻿# 🔧 Troubleshooting - Masalah & Solusi
 
 ## Masalah 1 & 2: Gambar Salah di Search & Category Filter
 **Gejala:** Saat search atau klik kategori Lingkungan, berita1-f tampil tapi gambar menunjukkan `berita10.png` instead of gambar seharusnya.
@@ -120,3 +120,4 @@ fallback → img/berita10.png ✓ (exists)
 ---
 
 **Updated:** 2026-02-12
+

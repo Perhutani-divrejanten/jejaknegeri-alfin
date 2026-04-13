@@ -1,4 +1,4 @@
-  =>  Template Name    : BizNews - Free News Website Template
+﻿  =>  Template Name    : Jejak Negeri - Free News Website Template
 
   =>  Template Link    :  
 
@@ -7,3 +7,5 @@
   =>  Template Author  : HTML Codex
 
   =>  Author Website   : https://htmlcodex.com
+
+

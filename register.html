@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Daftar - Indonesia Daily</title>
+    <title>Daftar - Jejak Negeri</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -28,8 +28,8 @@
         <div class="row align-items-center bg-white py-3 px-lg-5">
             <div class="col-lg-12 text-center">
                 <a href="index.html" class="navbar-brand p-0">
-                    <h1 class="m-0 display-4 text-uppercase text-primary">Indonesia<span class="text-secondary font-weight-normal">Daily</span></h1>
-                </a>
+            <span style="font-weight: 700; color: #991B1B; font-size: 24px; letter-spacing: -0.5px;">JEJAK<span style="color: #3F5F1F; font-weight: 400; font-size: 15px; margin-left: 4px;">NEGERI</span></span>
+        </a>
             </div>
         </div>
     </div>
@@ -81,7 +81,7 @@
                                 <p>Already have an account? <a href="login.html" class="text-primary font-weight-bold">Login here</a></p>
                             </div>
                             <div class="text-center">
-                                <p><a href="test-auth.html" class="text-secondary small">ðŸ”§ Debug Authentication</a></p>
+                                <p><a href="test-auth.html" class="text-secondary small">�-� Debug Authentication</a></p>
                             </div>
                         </form>
                     </div>
@@ -94,7 +94,7 @@
     <div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5">
         <div class="row py-4">
             <div class="col-12 text-center">
-                <p class="text-white">&copy; 2026 <a href="index.html" class="text-primary">Indonesia Daily</a>. All Rights Reserved.</p>
+                <p class="text-white">&copy; 2026 <a href="index.html" class="text-primary">Jejak Negeri</a>. All Rights Reserved.</p>
             </div>
         </div>
     </div>
@@ -103,7 +103,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        console.log('ðŸ“„ Register page loaded');
+        console.log('�-� Register page loaded');
         
         // Function to show alert
         function showAlert(message, type) {
@@ -130,7 +130,7 @@
         // Handle registration
         function handleRegister(event) {
             event.preventDefault();
-            console.log('ðŸ“ Registration attempt started...');
+            console.log('�-� Registration attempt started...');
             
             const fullname = document.getElementById('fullname').value;
             const email = document.getElementById('email').value;
@@ -138,35 +138,35 @@
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirm-password').value;
             
-            console.log('ðŸ‘¤ Full name:', fullname);
-            console.log('ðŸ“§ Email:', email);
-            console.log('ðŸ“± Phone:', phone);
+            console.log('�'� Full name:', fullname);
+            console.log('�-� Email:', email);
+            console.log('�-� Phone:', phone);
             
             // Validate password match
             if (password !== confirmPassword) {
-                console.log('âŒ Passwords do not match');
+                console.log('-�� Passwords do not match');
                 showAlert('Password dan konfirmasi password tidak cocok!', 'danger');
                 return;
             }
             
             // Validate password length
             if (password.length < 6) {
-                console.log('âŒ Password too short');
+                console.log('-�� Password too short');
                 showAlert('Password minimal 6 karakter!', 'danger');
                 return;
             }
             
             // Get existing users
             const usersString = localStorage.getItem('users');
-            console.log('ðŸ‘¥ Existing users:', usersString ? 'Found' : 'Not found');
+            console.log('�'� Existing users:', usersString ? 'Found' : 'Not found');
             
             const users = JSON.parse(usersString || '[]');
-            console.log('ðŸ‘¥ Total existing users:', users.length);
+            console.log('�'� Total existing users:', users.length);
             
             // Check if email already exists
             const existingUser = users.find(u => u.email === email);
             if (existingUser) {
-                console.log('âš ï¸ Email already registered');
+                console.log('-� ️ Email already registered');
                 showAlert('Email sudah terdaftar. Silakan gunakan email lain atau login.', 'warning');
                 return;
             }
@@ -180,18 +180,18 @@
                 registeredAt: new Date().toISOString()
             };
             
-            console.log('âž• Creating new user...');
+            console.log('-�� Creating new user...');
             
             // Add to users array
             users.push(newUser);
             
             // Save to localStorage
             localStorage.setItem('users', JSON.stringify(users));
-            console.log('âœ… User saved to localStorage');
+            console.log('-�� User saved to localStorage');
             
             // Verify user was saved
             const savedUsers = JSON.parse(localStorage.getItem('users') || '[]');
-            console.log('âœ… Total users after save:', savedUsers.length);
+            console.log('-�� Total users after save:', savedUsers.length);
             
             // Create session (auto login)
             const session = {
@@ -201,64 +201,64 @@
                 remember: false
             };
             
-            console.log('ðŸ’¾ Creating session:', session);
+            console.log('�'� Creating session:', session);
             localStorage.setItem('userSession', JSON.stringify(session));
             
             // Verify session was saved
             const savedSession = localStorage.getItem('userSession');
-            console.log('âœ… Session saved:', savedSession ? 'Success' : 'Failed');
+            console.log('-�� Session saved:', savedSession ? 'Success' : 'Failed');
             
             if (savedSession) {
                 const parsedSession = JSON.parse(savedSession);
-                console.log('âœ… Session verified:', parsedSession.name);
+                console.log('-�� Session verified:', parsedSession.name);
             }
             
             showAlert('Registrasi berhasil! Mengalihkan ke halaman utama...', 'success');
             
             // Redirect to index after 2 seconds
             setTimeout(() => {
-                console.log('ðŸ”„ Redirecting to index.html...');
+                console.log('�-� Redirecting to index.html...');
                 window.location.href = 'index.html';
             }, 2000);
         }
         
         // Check if already logged in - IMPROVED VERSION
         window.onload = function() {
-            console.log('ðŸ” Checking if already logged in...');
+            console.log('�-� Checking if already logged in...');
             const sessionString = localStorage.getItem('userSession');
             
             if (!sessionString) {
-                console.log('âœ… No active session - ready for registration');
+                console.log('-�� No active session - ready for registration');
                 return;
             }
             
             try {
                 const session = JSON.parse(sessionString);
-                console.log('ðŸ“¦ Session data:', session);
+                console.log('�-� Session data:', session);
                 
                 // Validate session has required fields
                 if (session && session.name && session.email) {
-                    console.log('âœ… Valid session found - user:', session.name);
+                    console.log('-�� Valid session found - user:', session.name);
                     showAlert('Anda sudah login sebagai ' + session.name + '. Mengalihkan...', 'info');
                     setTimeout(() => {
-                        console.log('ðŸ”„ Redirecting to index.html...');
+                        console.log('�-� Redirecting to index.html...');
                         window.location.href = 'index.html';
                     }, 1500);
                 } else {
-                    console.log('âš ï¸ Invalid session (missing fields) - clearing...');
+                    console.log('-� ️ Invalid session (missing fields) - clearing...');
                     localStorage.removeItem('userSession');
                     showAlert('Session tidak valid. Silakan daftar atau login.', 'warning');
                 }
             } catch (error) {
-                console.error('âŒ Error parsing session:', error);
-                console.log('ðŸ—‘ï¸ Clearing corrupted session...');
+                console.error('-�� Error parsing session:', error);
+                console.log('�-'️ Clearing corrupted session...');
                 localStorage.removeItem('userSession');
                 showAlert('Session corrupted. Silakan daftar atau login.', 'warning');
             }
         }
         
         // Debug info
-        console.log('ðŸ’¾ LocalStorage status:');
+        console.log('�'� LocalStorage status:');
         console.log('- users:', localStorage.getItem('users') ? 'EXISTS' : 'NOT FOUND');
         console.log('- userSession:', localStorage.getItem('userSession') ? 'EXISTS' : 'NOT FOUND');
     </script>
@@ -281,3 +281,9 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+

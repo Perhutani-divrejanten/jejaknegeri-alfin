@@ -1,3 +1,4 @@
+﻿
 {
   "description": "Konfigurasi untuk 34 portal berita. Edit nilai di bawah sesuai kebutuhan dan jalankan generate-sites.js",
   "basePath": "../",
@@ -6,13 +7,13 @@
     {
       "id": 1,
       "folderName": "site-01-portal1",
-      "siteName": "tribun janten",
-      "email": "tribunjanten@gmail.com",
-      "socialHandle": "tribunjanten",
+      "siteName": "tribun INFORMASI",
+      "email": "tribunINFORMASI@gmail.com",
+      "socialHandle": "tribunINFORMASI",
       "colors": {
         "primary": "#1E3A8A",
         "dark": "#0B1F3A",
-        "secondary": "#31404B"
+        "secondary": "#3F5F1F"
       }
     },
     {
@@ -30,21 +31,21 @@
     {
       "id": 3,
       "folderName": "site-03-portal3",
-      "siteName": "Warta Janten",
-      "email": "wartajanten@gmail.com",
-      "socialHandle": "wartajanten",
+      "siteName": "Jejak Negeri",
+      "email": "jejakknegeri@gmail.com",
+      "socialHandle": "JejakNegeri",
       "colors": {
-        "primary": "#065F46",
-        "dark": "#022C22",
-        "secondary": "#1E3A5F"
+        "primary": "#991B1B",
+        "dark": "#450A0A",
+        "secondary": "#3F5F1F"
       }
     },
     {
       "id": 4,
       "folderName": "site-04-portal4",
-      "siteName": "Janten News",
-      "email": "jantenNews@gmail.com",
-      "socialHandle": "jantenNews",
+      "siteName": "INFORMASI News",
+      "email": "INFORMASINews@gmail.com",
+      "socialHandle": "INFORMASINews",
       "colors": {
         "primary": "#7C2D12",
         "dark": "#2A0E05",
@@ -54,9 +55,9 @@
     {
       "id": 5,
       "folderName": "site-05-portal5",
-      "siteName": "Berita Janten",
-      "email": "BeritaJanten@gmail.com",
-      "socialHandle": "beritajanten",
+      "siteName": "Berita INFORMASI",
+      "email": "BeritaINFORMASI@gmail.com",
+      "socialHandle": "beritaINFORMASI",
       "colors": {
         "primary": "#166534",
         "dark": "#052E16",
@@ -66,9 +67,9 @@
     {
       "id": 6,
       "folderName": "site-06-portal6",
-      "siteName": "Kabar Janten",
-      "email": "kabarjanten@gmail.com",
-      "socialHandle": "kabarjanten",
+      "siteName": "Kabar INFORMASI",
+      "email": "kabarINFORMASI@gmail.com",
+      "socialHandle": "kabarINFORMASI",
       "colors": {
         "primary": "#0C4A6E",
         "dark": "#082F49",
@@ -162,13 +163,13 @@
     {
       "id": 14,
       "folderName": "site-14-portal14",
-      "siteName": "Pusat Informasi",
-      "email": "pusatinformasi@gmail.com",
-      "socialHandle": "pusatinformasi",
+      "siteName": "Jejak Negeri",
+      "email": "jejakknegeri@gmail.com",
+      "socialHandle": "JejakNegeri",
       "colors": {
-        "primary": "#F59E0B",
-        "dark": "#78350F",
-        "secondary": "#5F1F7F"
+        "primary": "#991B1B",
+        "dark": "#450A0A",
+        "secondary": "#3F5F1F"
       }
     },
     {
@@ -186,9 +187,9 @@
     {
       "id": 16,
       "folderName": "site-16-portal16",
-      "siteName": "Lintas Janten",
-      "email": "lintasjanten@gmail.com",
-      "socialHandle": "lintasjanten",
+      "siteName": "Lintas INFORMASI",
+      "email": "lintasINFORMASI@gmail.com",
+      "socialHandle": "lintasINFORMASI",
       "colors": {
         "primary": "#EA580C",
         "dark": "#7C2D12",
@@ -224,7 +225,7 @@
       "folderName": "site-19-portal19",
       "siteName": "Jejak Negeri",
       "email": "jejakknegeri@gmail.com",
-      "socialHandle": "jejakknegeri",
+      "socialHandle": "JejakNegeri",
       "colors": {
         "primary": "#991B1B",
         "dark": "#450A0A",
@@ -322,8 +323,8 @@
       "email": "fokusnusantara@gmail.com",
       "socialHandle": "fokusnusantara",
       "colors": {
-        "primary": "#065F46",
-        "dark": "#022C22",
+        "primary": "#991B1B",
+        "dark": "#450A0A",
         "secondary": "#6B3D51"
       }
     },
@@ -372,15 +373,15 @@
       "colors": {
         "primary": "#9333EA",
         "dark": "#4C1D95",
-        "secondary": "#5F1F7F"
+        "secondary": "#3F5F1F"
       }
     },
     {
       "id": 32,
       "folderName": "site-32-portal32",
-      "siteName": "Janten terkini",
-      "email": "jantenterkini@gmail.com",
-      "socialHandle": "jantenterkini",
+      "siteName": "INFORMASI terkini",
+      "email": "INFORMASIterkini@gmail.com",
+      "socialHandle": "INFORMASIterkini",
       "colors": {
         "primary": "#1F2937",
         "dark": "#111827",
@@ -390,9 +391,9 @@
     {
       "id": 33,
       "folderName": "site-33-portal33",
-      "siteName": "Janten Bersuara",
-      "email": "jantenbersuara@gmail.com",
-      "socialHandle": "jantenbersuara",
+      "siteName": "INFORMASI Bersuara",
+      "email": "INFORMASIbersuara@gmail.com",
+      "socialHandle": "INFORMASIbersuara",
       "colors": {
         "primary": "#B91C1C",
         "dark": "#3F0D0D",
@@ -402,9 +403,9 @@
     {
       "id": 34,
       "folderName": "site-34-portal34",
-      "siteName": "Kilas Janten",
-      "email": "kilasjanten@gmail.com",
-      "socialHandle": "kilasjanten",
+      "siteName": "Kilas INFORMASI",
+      "email": "kilasINFORMASI@gmail.com",
+      "socialHandle": "kilasINFORMASI",
       "colors": {
         "primary": "#1E3A8A",
         "dark": "#3F0F1F",
@@ -413,3 +414,7 @@
     }
   ]
 }
+
+
+
+

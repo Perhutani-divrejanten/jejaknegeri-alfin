@@ -1,4 +1,4 @@
-# ✅ Status Perbaikan & Langkah Selanjutnya
+﻿# ✅ Status Perbaikan & Langkah Selanjutnya
 
 ## Masalah yang Dilaporkan User
 
@@ -182,3 +182,4 @@ if not found → fallback img/berita10.png
 
 **Status Updated:** 2026-02-12 14:30
 **System Status:** ✅ Ready for Articles (pending user upload images)
+

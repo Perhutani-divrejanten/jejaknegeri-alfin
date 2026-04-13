@@ -1,4 +1,4 @@
-# Cara Upload Gambar ke Google Drive untuk Indonesia Daily
+﻿# Cara Upload Gambar ke Google Drive untuk Jejak Negeri
 
 ## Langkah-langkah Upload Gambar:
 
@@ -34,3 +34,5 @@ https://drive.google.com/file/d/FILE_ID/view?usp=sharing
 ## Troubleshooting:
 - Jika gambar tidak muncul, pastikan permission "Anyone with the link can view"
 - Jika masih tidak muncul, coba refresh halaman atau clear cache browser
+
+
