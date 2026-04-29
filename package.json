@@ -1,19 +1,13 @@
-﻿{
+{
   "name": "jejakknegeri",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
     "axios": "^1.4.0",
+    "cheerio": "^1.2.0",
     "handlebars": "^4.7.8"
   },
   "scripts": {
     "generate": "node tools/generate.js"
   }
 }
-
-
-
-
-
-
-

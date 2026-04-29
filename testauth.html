@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Authentication - Jejak Negeri</title>
@@ -107,35 +105,35 @@
     </style>
 </head>
 <body>
-    <h1>ğŸ-§ Authentication Debugger</h1>
+    <h1>ï¿½-ï¿½ Authentication Debugger</h1>
     
     <div class="card">
-        <h2>ğŸ-Š Current Status</h2>
+        <h2>ï¿½-ï¿½ Current Status</h2>
         <div id="currentStatus"></div>
     </div>
 
     <div class="card">
-        <h2>ğŸ'¾ LocalStorage Data</h2>
+        <h2>ï¿½'ï¿½ LocalStorage Data</h2>
         <div id="storageData"></div>
     </div>
 
     <div class="card">
-        <h2>ğŸ'¥ Registered Users</h2>
+        <h2>ï¿½'ï¿½ Registered Users</h2>
         <div id="usersList"></div>
     </div>
 
     <div class="card">
-        <h2>ğŸ-¨ Actions</h2>
-        <button class="btn btn-success" onclick="createTestUser()">-• Create Test User</button>
-        <button class="btn" onclick="refreshData()">ğŸ-„ Refresh</button>
-        <button class="btn btn-danger" onclick="clearAll()">ğŸ-'ï¸ Clear All Data</button>
-        <a href="index.html" class="btn">ğŸ  Go to Index</a>
-        <a href="login.html" class="btn">ğŸ- Go to Login</a>
-        <a href="register.html" class="btn">ğŸ- Go to Register</a>
+        <h2>ï¿½-ï¿½ Actions</h2>
+        <button class="btn btn-success" onclick="createTestUser()">-ï¿½ï¿½ Create Test User</button>
+        <button class="btn" onclick="refreshData()">ï¿½-ï¿½ Refresh</button>
+        <button class="btn btn-danger" onclick="clearAll()">ï¿½-'ï¸ Clear All Data</button>
+        <a href="index.html" class="btn">ï¿½  Go to Index</a>
+        
+        
     </div>
 
     <div class="card">
-        <h2>ğŸ- Console Logs</h2>
+        <h2>ï¿½-ï¿½ Console Logs</h2>
         <pre id="consoleLogs"></pre>
     </div>
 
@@ -158,7 +156,7 @@
             checkCurrentStatus();
             displayStorageData();
             displayUsersList();
-            console.log('ğŸ-„ Data refreshed');
+            console.log('ï¿½-ï¿½ Data refreshed');
         }
 
         function checkCurrentStatus() {
@@ -166,7 +164,7 @@
             const session = localStorage.getItem('userSession');
             
             if (!session) {
-                statusDiv.innerHTML = '<div class="status warning">-š ï¸ Not Logged In</div>';
+                statusDiv.innerHTML = '<div class="status warning">-ï¿½ ï¸ Not Logged In</div>';
                 return;
             }
 
@@ -176,16 +174,16 @@
                 if (userData && userData.name && userData.email) {
                     statusDiv.innerHTML = `
                         <div class="status success">
-                            -œ… Logged In as: <strong>${userData.name}</strong><br>
-                            ğŸ-§ Email: ${userData.email}<br>
+                            -ï¿½ï¿½ Logged In as: <strong>${userData.name}</strong><br>
+                            ï¿½-ï¿½ Email: ${userData.email}<br>
                             ğŸ• Login Time: ${new Date(userData.loginTime).toLocaleString()}
                         </div>
                     `;
                 } else {
-                    statusDiv.innerHTML = '<div class="status error">-Œ Invalid session data (missing fields)</div>';
+                    statusDiv.innerHTML = '<div class="status error">-ï¿½ï¿½ Invalid session data (missing fields)</div>';
                 }
             } catch (error) {
-                statusDiv.innerHTML = `<div class="status error">-Œ Corrupted Session: ${error.message}</div>`;
+                statusDiv.innerHTML = `<div class="status error">-ï¿½ï¿½ Corrupted Session: ${error.message}</div>`;
             }
         }
 
@@ -199,8 +197,8 @@
             keys.forEach(key => {
                 const value = localStorage.getItem(key);
                 const status = value ? 
-                    '<span class="badge badge-success">-œ- EXISTS</span>' : 
-                    '<span class="badge badge-danger">-œ- NOT FOUND</span>';
+                    '<span class="badge badge-success">-ï¿½- EXISTS</span>' : 
+                    '<span class="badge badge-danger">-ï¿½- NOT FOUND</span>';
                 
                 let displayValue = 'N/A';
                 if (value) {
@@ -224,7 +222,7 @@
             const usersString = localStorage.getItem('users');
             
             if (!usersString) {
-                listDiv.innerHTML = '<div class="status info">-„¹ï¸ No registered users found</div>';
+                listDiv.innerHTML = '<div class="status info">-ï¿½ï¿½ï¸ No registered users found</div>';
                 return;
             }
 
@@ -232,7 +230,7 @@
                 const users = JSON.parse(usersString);
                 
                 if (users.length === 0) {
-                    listDiv.innerHTML = '<div class="status info">-„¹ï¸ No registered users</div>';
+                    listDiv.innerHTML = '<div class="status info">-ï¿½ï¿½ï¸ No registered users</div>';
                     return;
                 }
 
@@ -252,10 +250,10 @@
                 });
                 
                 html += '</table>';
-                html += `<div class="status success">-œ… Total: ${users.length} user(s)</div>`;
+                html += `<div class="status success">-ï¿½ï¿½ Total: ${users.length} user(s)</div>`;
                 listDiv.innerHTML = html;
             } catch (error) {
-                listDiv.innerHTML = `<div class="status error">-Œ Error parsing users: ${error.message}</div>`;
+                listDiv.innerHTML = `<div class="status error">-ï¿½ï¿½ Error parsing users: ${error.message}</div>`;
             }
         }
 
@@ -272,40 +270,34 @@
             
             // Check if already exists
             if (users.find(u => u.email === testUser.email)) {
-                alert('-Œ Test user already exists!\nEmail: test@example.com\nPassword: test123');
+                alert('-ï¿½ï¿½ Test user already exists!\nEmail: test@example.com\nPassword: test123');
                 return;
             }
             
             users.push(testUser);
             localStorage.setItem('users', JSON.stringify(users));
             
-            alert('-œ… Test user created!\nEmail: test@example.com\nPassword: test123');
-            console.log('-œ… Test user created');
+            alert('-ï¿½ï¿½ Test user created!\nEmail: test@example.com\nPassword: test123');
+            console.log('-ï¿½ï¿½ Test user created');
             refreshData();
         }
 
         function clearAll() {
-            if (!confirm('-š ï¸ This will delete ALL data!\n\nContinue?')) {
+            if (!confirm('-ï¿½ ï¸ This will delete ALL data!\n\nContinue?')) {
                 return;
             }
             
             localStorage.clear();
-            alert('-œ… All data cleared!');
-            console.log('ğŸ-'ï¸ All data cleared');
+            alert('-ï¿½ï¿½ All data cleared!');
+            console.log('ï¿½-'ï¸ All data cleared');
             refreshData();
         }
 
         // Initial load
         window.onload = function() {
-            console.log('ğŸš- Test page loaded');
+            console.log('ï¿½- Test page loaded');
             refreshData();
         };
     </script>
-</body>
-</html>
 
-
-
-
-
-
+</body></html>

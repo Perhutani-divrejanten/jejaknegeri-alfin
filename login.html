@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="utf-8">
     <title>Login - Jejak Negeri</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -46,18 +44,18 @@
                         <div id="alertMessage" class="alert alert-dismissible fade show" role="alert" style="display: none;">
                             <span id="alertText"></span>
                             <button type="button" class="close" onclick="hideAlert()">
-                                <span>&times;</span>
+                                <span>√ó</span>
                             </button>
                         </div>
 
                         <form id="loginForm" onsubmit="handleLogin(event)">
                             <div class="form-group">
                                 <label for="email">Email Address</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required="">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                                <input type="password" class="form-control" id="password" placeholder="Enter your password" required="">
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="remember">
@@ -69,10 +67,10 @@
                             </div>
                             <hr>
                             <div class="text-center">
-                                <p>Don't have an account? <a href="register.html" class="text-primary font-weight-bold">Register here</a></p>
+                                <p>Don't have an account? </p>
                             </div>
                             <div class="text-center">
-                                <p><a href="test-auth.html" class="text-secondary small">ü-ß Debug Authentication</a></p>
+                                <p><a href="test-auth.html" class="text-secondary small">ÔøΩ-ÔøΩ Debug Authentication</a></p>
                             </div>
                         </form>
                     </div>
@@ -82,10 +80,10 @@
     </div>
 
     <!-- Footer -->
-    <div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5">
+    <div class="container-fluid bg-dark pt-4 px-sm-3 px-md-5">
         <div class="row py-4">
             <div class="col-12 text-center">
-                <p class="text-white">&copy; 2026 <a href="index.html" class="text-primary">Jejak Negeri</a>. All Rights Reserved.</p>
+                <p class="text-white">¬© 2026 <a href="index.html" class="text-primary">Jejak Negeri</a>. All Rights Reserved.</p>
             </div>
         </div>
     </div>
@@ -94,7 +92,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        console.log('ü-Ñ Login page loaded');
+        console.log('ÔøΩ-ÔøΩ Login page loaded');
         
         // Function to show alert
         function showAlert(message, type) {
@@ -121,28 +119,28 @@
         // Handle login
         function handleLogin(event) {
             event.preventDefault();
-            console.log('ü-ê Login attempt started...');
+            console.log('ÔøΩ-ÔøΩ Login attempt started...');
             
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const remember = document.getElementById('remember').checked;
             
-            console.log('ü-ß Email:', email);
-            console.log('ü-' Password: [HIDDEN]');
-            console.log('ü'æ Remember:', remember);
+            console.log('ÔøΩ-ÔøΩ Email:', email);
+            console.log('ÔøΩ-' Password: [HIDDEN]');
+            console.log('ÔøΩ'ÔøΩ Remember:', remember);
             
             // Get users from localStorage
             const usersString = localStorage.getItem('users');
-            console.log('ü'• Users in storage:', usersString ? 'Found' : 'Not found');
+            console.log('ÔøΩ'ÔøΩ Users in storage:', usersString ? 'Found' : 'Not found');
             
             const users = JSON.parse(usersString || '[]');
-            console.log('ü'• Total users:', users.length);
+            console.log('ÔøΩ'ÔøΩ Total users:', users.length);
             
             // Find user
             const user = users.find(u => u.email === email && u.password === password);
             
             if (user) {
-                console.log('-úÖ User found:', user.fullname);
+                console.log('-ÔøΩÔøΩ User found:', user.fullname);
                 
                 // Login successful
                 const session = {
@@ -152,65 +150,65 @@
                     remember: remember
                 };
                 
-                console.log('ü'æ Saving session:', session);
+                console.log('ÔøΩ'ÔøΩ Saving session:', session);
                 
                 // Save session
                 localStorage.setItem('userSession', JSON.stringify(session));
                 
                 // Verify session was saved
                 const savedSession = localStorage.getItem('userSession');
-                console.log('-úÖ Session saved:', savedSession ? 'Success' : 'Failed');
+                console.log('-ÔøΩÔøΩ Session saved:', savedSession ? 'Success' : 'Failed');
                 
                 showAlert('Login berhasil! Mengalihkan ke halaman utama...', 'success');
                 
                 // Redirect to index after 1.5 seconds
                 setTimeout(() => {
-                    console.log('ü-Ñ Redirecting to index.html...');
+                    console.log('ÔøΩ-ÔøΩ Redirecting to index.html...');
                     window.location.href = 'index.html';
                 }, 1500);
             } else {
-                console.log('-ùå Login failed - user not found');
+                console.log('-ÔøΩÔøΩ Login failed - user not found');
                 showAlert('Email atau password salah. Silakan coba lagi.', 'danger');
             }
         }
         
         // Check if already logged in - IMPROVED VERSION
         window.onload = function() {
-            console.log('ü-ç Checking if already logged in...');
+            console.log('ÔøΩ-ÔøΩ Checking if already logged in...');
             const sessionString = localStorage.getItem('userSession');
             
             if (!sessionString) {
-                console.log('-úÖ No active session - ready for login');
+                console.log('-ÔøΩÔøΩ No active session - ready for login');
                 return;
             }
             
             try {
                 const session = JSON.parse(sessionString);
-                console.log('ü-¶ Session data:', session);
+                console.log('ÔøΩ-ÔøΩ Session data:', session);
                 
                 // Validate session has required fields
                 if (session && session.name && session.email) {
-                    console.log('-úÖ Valid session found - user:', session.name);
+                    console.log('-ÔøΩÔøΩ Valid session found - user:', session.name);
                     showAlert('Anda sudah login sebagai ' + session.name + '. Mengalihkan...', 'info');
                     setTimeout(() => {
-                        console.log('ü-Ñ Redirecting to index.html...');
+                        console.log('ÔøΩ-ÔøΩ Redirecting to index.html...');
                         window.location.href = 'index.html';
                     }, 1500);
                 } else {
-                    console.log('-ö Ô∏è Invalid session (missing fields) - clearing...');
+                    console.log('-ÔøΩ Ô∏è Invalid session (missing fields) - clearing...');
                     localStorage.removeItem('userSession');
                     showAlert('Session tidak valid. Silakan login kembali.', 'warning');
                 }
             } catch (error) {
-                console.error('-ùå Error parsing session:', error);
-                console.log('ü-'Ô∏è Clearing corrupted session...');
+                console.error('-ÔøΩÔøΩ Error parsing session:', error);
+                console.log('ÔøΩ-'Ô∏è Clearing corrupted session...');
                 localStorage.removeItem('userSession');
                 showAlert('Session corrupted. Silakan login kembali.', 'warning');
             }
         }
         
         // Debug info
-        console.log('ü'æ LocalStorage status:');
+        console.log('ÔøΩ'ÔøΩ LocalStorage status:');
         console.log('- users:', localStorage.getItem('users') ? 'EXISTS' : 'NOT FOUND');
         console.log('- userSession:', localStorage.getItem('userSession') ? 'EXISTS' : 'NOT FOUND');
     </script>
@@ -231,11 +229,5 @@
 
     dateElement.textContent = formattedDate;
     </script>
-</body>
-</html>
 
-
-
-
-
-
+</body></html>
