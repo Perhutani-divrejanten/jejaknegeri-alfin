@@ -6,25 +6,17 @@ on:
     - cron: '0 8 * * *'
 
 jobs:
-  deploy:
+  deploy-main:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
+      - run: if [ -f package.json ]; then npm ci; fi
+      - run: node tools/generate.js
 
-      - name: Install dependencies (if any)
-        run: |
-          if [ -f package.json ]; then npm ci; fi
-
-      - name: Run static generator
-        run: node tools/generate.js
-
-      - name: Deploy via FTP
+      - name: Deploy file utama (bukan folder article)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: 195.88.211.226
@@ -32,34 +24,56 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftp
+          security: loose
           local-dir: ./
           server-dir: /jejaknegeri/
-          timeout: 300000        # ← naikkan dari 120s ke 300s
+          timeout: 300000
           dangerous-clean-slate: false
-          security: loose        # ← tambah ini, penting untuk cPanel
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
             **/.github/**
+            **/tools/**
+            **/scripts/**
+            **/article/**
             *.bak*
+            *.ps1
+            *.md
             articles_temp.json
             .DS_Store
             .env
             .env.local
             *.log
-            TROUBLESHOOTING.md
-            AUDIT_REPORT.md
-            PERBAIKAN_STATUS.md
-            final-verification.ps1
-            fix-encoding.ps1
-            rebrand-to-warta-janten.ps1
-            replace-logo.ps1
-            # tambah file-file besar yang tidak perlu di server:
-            tools/article_images.json
-            tools/user_image_mapping.json
-            *.ps1
-            READ-ME.txt
-            REBRAND_SUMMARY.txt
-            SEARCH_SETUP.md
+            netlify.toml
+            package.json
+            package-lock.json
+            LICENSE.txt
             test.jpg
+
+  deploy-articles:
+    runs-on: ubuntu-latest
+    needs: deploy-main  # jalankan setelah job pertama selesai
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: if [ -f package.json ]; then npm ci; fi
+      - run: node tools/generate.js
+
+      - name: Deploy folder article saja
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: 195.88.211.226
+          username: deploy1@bandungbersuara.jabarinfo.id
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
+          security: loose
+          local-dir: ./article/
+          server-dir: /jejaknegeri/article/
+          timeout: 300000
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
