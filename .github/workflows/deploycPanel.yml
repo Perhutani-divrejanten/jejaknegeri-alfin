@@ -1,15 +1,13 @@
 name: Deploy ke cPanel
-
 on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 8 * * *'   # otomatis update setiap hari jam 15:00 WIB / 08:00 UTC
+    - cron: '0 8 * * *'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -34,10 +32,11 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftp
-          local-dir: ./  # atau ./ jika ingin upload semua
+          local-dir: ./
           server-dir: /jejaknegeri/
-          timeout: 120000
+          timeout: 300000        # ← naikkan dari 120s ke 300s
           dangerous-clean-slate: false
+          security: loose        # ← tambah ini, penting untuk cPanel
           exclude: |
             **/.git*
             **/.git*/**
@@ -56,3 +55,11 @@ jobs:
             fix-encoding.ps1
             rebrand-to-warta-janten.ps1
             replace-logo.ps1
+            # tambah file-file besar yang tidak perlu di server:
+            tools/article_images.json
+            tools/user_image_mapping.json
+            *.ps1
+            READ-ME.txt
+            REBRAND_SUMMARY.txt
+            SEARCH_SETUP.md
+            test.jpg
