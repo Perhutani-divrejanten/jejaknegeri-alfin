@@ -1,22 +1,32 @@
 name: Deploy ke cPanel
+
 on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 5 * * *'
+    - cron: '0 5 * * *'   # otomatis update setiap hari jam 15:00 WIB / 08:00 UTC
 
 jobs:
-  deploy-main:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: if [ -f package.json ]; then npm ci; fi
-      - run: node tools/generate.js
 
-      - name: Deploy file utama (bukan folder article)
+      - name: Install dependencies (if any)
+        run: |
+          if [ -f package.json ]; then npm ci; fi
+
+      - name: Run static generator
+        run: node tools/generate.js
+
+      - name: Deploy via FTP (only changed files)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: 195.88.211.226
@@ -24,56 +34,26 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftp
-          security: loose
           local-dir: ./
           server-dir: /jejaknegeri/
-          timeout: 300000
+          state-name: .ftp-deploy-sync-state.json
+          timeout: 600000
           dangerous-clean-slate: false
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
             **/.github/**
-            **/tools/**
-            **/scripts/**
-            **/article/**
             *.bak*
-            *.ps1
-            *.md
             articles_temp.json
             .DS_Store
             .env
             .env.local
             *.log
-            netlify.toml
-            package.json
-            package-lock.json
-            LICENSE.txt
-            test.jpg
-
-  deploy-articles:
-    runs-on: ubuntu-latest
-    needs: deploy-main  # jalankan setelah job pertama selesai
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - run: if [ -f package.json ]; then npm ci; fi
-      - run: node tools/generate.js
-
-      - name: Deploy folder article saja
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: 195.88.211.226
-          username: deploy1@bandungbersuara.jabarinfo.id
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 21
-          protocol: ftp
-          security: loose
-          local-dir: ./article/
-          server-dir: /jejaknegeri/article/
-          timeout: 300000
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
+            *.ps1
+            *.md
+            tools/**
+            lib/**
+            scripts/**
+            rebrand_*.ipynb
+            **/Thumbs.db
